@@ -411,6 +411,7 @@ void LoRaWANClass::update(void)
     //Type A mote transmit receive cycle
     if ((RFM_Command_Status == NEW_RFM_COMMAND || RFM_Command_Status == JOIN) && LoRa_Settings.Mote_Class == CLASS_A)
     {
+        Message_Rx.Frame_Control = 0x00;
         //LoRaWAN TX/RX cycle
         LORA_Cycle(&Buffer_Tx, &Buffer_Rx, &RFM_Command_Status, &Session_Data, &OTAA_Data, &Message_Rx, &LoRa_Settings);
 
